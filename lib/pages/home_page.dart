@@ -8,9 +8,11 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Categlo App')),
       body: const Center(
-        child: Text('Body'),
+        child: Text('Welcome to 30 days flutter course'),
       ),
-      drawer: const Drawer(),
+      drawer: const Drawer(
+        
+      ),
     );
   }
 }
