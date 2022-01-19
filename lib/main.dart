@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:fluttercatelog/pages/cart_page.dart';
 import 'package:fluttercatelog/pages/login_page.dart';
 import 'package:fluttercatelog/utils/routes.dart';
 import 'package:fluttercatelog/widgets/themes.dart';
@@ -22,10 +23,11 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme,
       darkTheme: MyTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoutes.homeRoute,
+      initialRoute: MyRoutes.loginRoute,
       routes: {
         MyRoutes.loginRoute: (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
+        MyRoutes.cartRoute: (context) => CartPage(),
       },
     );
   }
