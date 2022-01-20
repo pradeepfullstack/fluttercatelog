@@ -1,6 +1,7 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, deprecated_member_use
 import 'package:flutter/material.dart';
 import 'package:fluttercatelog/utils/routes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 // ignore: use_key_in_widget_constructors
 class LoginPage extends StatefulWidget {
@@ -30,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-        color: Colors.white,
+        color: context.canvasColor,
         child: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -90,31 +91,36 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 40,
                     ),
-                    InkWell(
-                      onTap: () => moveTohome(context),
-                      child: AnimatedContainer(
-                          duration: Duration(seconds: 1),
-                          width: changeButton ? 50 : 150,
-                          height: 50,
-                          alignment: Alignment.center,
-                          child: changeButton
-                              ? Icon(Icons.done, color: Colors.white)
-                              : Text(
-                                  "Login",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18,
+                    Material(
+                      color: context.theme.buttonColor,
+                      borderRadius:
+                          BorderRadius.circular(changeButton ? 50 : 8),
+                      child: InkWell(
+                        onTap: () => moveTohome(context),
+                        child: AnimatedContainer(
+                            duration: Duration(seconds: 1),
+                            width: changeButton ? 50 : 150,
+                            height: 50,
+                            alignment: Alignment.center,
+                            child: changeButton
+                                ? Icon(Icons.done, color: Colors.white)
+                                : Text(
+                                    "Login",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
                                   ),
-                                ),
-                          decoration: BoxDecoration(
-                            color: Colors.deepPurple,
-                            // shape: changeButton
-                            //     ? BoxShape.circle
-                            //     : BoxShape.rectangle,
-                            borderRadius:
-                                BorderRadius.circular(changeButton ? 50 : 8),
-                          )),
+                            decoration: BoxDecoration(
+                              color: context.theme.buttonColor,
+                              // shape: changeButton
+                              //     ? BoxShape.circle
+                              //     : BoxShape.rectangle,
+                              borderRadius:
+                                  BorderRadius.circular(changeButton ? 50 : 8),
+                            )),
+                      ),
                     )
                     // ElevatedButton(
                     //   child: Text("Login"),
