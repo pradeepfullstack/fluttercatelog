@@ -1,5 +1,14 @@
+// ignore_for_file: null_closures
+
 class CatalogModel {
   static List<Item> items = [];
+
+  // Get Item by id
+  Item getById(int id) =>
+      items.firstWhere((element) => element.id == id, orElse: null);
+
+  // Get Item By Possition
+  static Item getByPosition(int pos) => items[pos];
 }
 
 class Item {
