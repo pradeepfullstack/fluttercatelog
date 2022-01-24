@@ -45,7 +45,7 @@ class HomeDetailPage extends StatelessWidget {
                           .bold
                           .make(),
                       catalog.desc.text.xl.make(),
-                      "Lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+                      "Lorem ipsum dolor sit amet,  amet Lorem ipsum dolor sit amet, consectetur lorem ipsum dolor dolor sit amet lorem ipsum dolor sit amet"
                           .text
                           .make()
                           .p16()
