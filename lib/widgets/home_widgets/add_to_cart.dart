@@ -1,7 +1,8 @@
-// ignore_for_file: prefer_const_constructors, deprecated_member_use
+// ignore_for_file: prefer_const_constructors, deprecated_member_use, prefer_const_constructors_in_immutables
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttercatelog/core/store.dart';
 import 'package:fluttercatelog/models/cart.dart';
 import 'package:fluttercatelog/models/catalog.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -12,10 +13,11 @@ class AddToCart extends StatelessWidget {
     Key? key,
     required this.catalog,
   }) : super(key: key);
-  final _cart = CartModel();
 
   @override
   Widget build(BuildContext context) {
+    VxState.watch(context, on: [AddMutation]);
+    final CartModel _cart = (VxState.store as MyStore).cart;
     bool isInCart;
     if (_cart.items.contains(catalog)) {
       isInCart = true;
@@ -25,10 +27,7 @@ class AddToCart extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {
         if (!isInCart) {
-          isInCart = isInCart.toggle();
-          final _catalog = CatalogModel();
-          _cart.catalog = _catalog;
-          _cart.add(catalog);
+          AddMutation(catalog);
           // setState(() {});
         }
       },
