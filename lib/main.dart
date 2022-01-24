@@ -1,14 +1,16 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:fluttercatelog/core/store.dart';
 import 'package:fluttercatelog/pages/cart_page.dart';
 import 'package:fluttercatelog/pages/login_page.dart';
 import 'package:fluttercatelog/utils/routes.dart';
 import 'package:fluttercatelog/widgets/themes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import 'pages/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(VxState(store: MyStore(), child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
